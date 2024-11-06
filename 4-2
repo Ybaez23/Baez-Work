@@ -1,0 +1,32 @@
+#Function: program determines an employee's productivitiy bonus
+
+
+# Initialize variables here 
+BONUS_1 = 50.00
+BONUS_2 = 75.00    
+BONUS_3 = 100.00
+BONUS_4 = 200.00
+
+employeeName = input("enter employee's name: ")
+shiftString = input("enter number of shifts: ")
+transactionString = input("enter number of transactions: ")
+dollarString = input("enter transaction dollar value: ")
+
+numShifts = float(shiftString)
+numTransactions = float(transactionString)
+dolarValue = float(dollarString)
+
+# write code here
+productivityScore = (dolarValue/numTransactions)/numShifts
+if productivityScore >= 200:
+    bonus = BONUS_4
+elif productivityScore >=70 and productivityScore <=199:
+    bonus = BONUS_3
+elif productivityScore >=31 and productivityScore <=69:
+    bonus = BONUS_2
+elif productivityScore <= 50: 
+    bonus = BONUS_1
+
+# outputs 
+print("Employee Name: " + employeeName)
+print("Employee Bonus: $" + str(bonus))
