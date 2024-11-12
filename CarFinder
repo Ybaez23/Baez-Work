@@ -1,0 +1,18 @@
+# AutoCountry Use Case CarFinder v0.1
+
+# insert list of allowed trucks 
+
+AllowedVehiclesList = [ 'Ford F-150', 'Chevrolet Silverado', 'Tesla Cybertruck', 'Toyota Tundra', 'Nissan Titan']
+
+print("AutoCountry Use Case CarFinder v0.1 Menu: ")
+print("Please Enter the following number below from the following menu")
+print("1. PRINT All Authorized Vehicles")
+print("2. Exit")
+
+choice = input("enter your choice (option 1 or 2)")
+if choice == '1':
+    print("The AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
+    print(AllowedVehiclesList)
+if choice == "2":
+    print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
+
