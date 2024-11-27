@@ -1,0 +1,62 @@
+# AutoCountry Use Case CarFinder v0.1
+
+# insert list of allowed trucks 
+
+AllowedVehiclesList = [ 'Ford F-150', 'Chevrolet Silverado', 'Tesla Cybertruck', 'Toyota Tundra', 'Rivian R1T', 'Ram 1500'] 
+def menu():
+    print("AutoCountry Use Case CarFinder v0.1 Menu: ")
+    print("Please Enter the following number below from the following menu")
+    print("1. PRINT All Authorized Vehicles")
+    print("2. SEARCH for Authorized Vehicle")
+    print("3. ADD Authorized Vehicle")
+    print("4. DELETE Authorized Vehicle")
+    print("5. Exit")
+
+def PrintVehList():
+    with open("AllowedVehiclesList.txt", mode="r") as db:
+        response = db.read()
+        print(response)
+    return
+print(AllowedVehiclesList)
+def search_vehicle(vehicle_name):
+ with open("AllowedVehiclesList.txt", "r") as db:
+    response = db.read()
+
+ if vehicle_name not in AllowedVehiclesList:
+     AllowedVehiclesList[2] = AllowedVehiclesList.append(vehicle_name) 
+     print(f"{vehicle_name} has been added to the allowed vehicles list.")
+
+while True:
+    menu()
+    choice = input("enter your choice (option 1, 2, 3, 4, or 5)")
+    if choice == "1":
+        print("The AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
+        print(AllowedVehiclesList)
+    if choice == "2":
+        vehicle_name = input("Please Enter the full Vehicle name: ") 
+        db =open("data/AllowedVehicleList.txt", "r")
+        vehicle_name = input()
+        if vehicle_name in "AllowedVehiclesList.txt":
+            print(f"{vehicle_name} is an authorized vehicle.")
+        else: print(f"{vehicle_name} is not an authorized vehicle, if you received this in error please check the spelling and try again.")
+    if choice == "3":
+        new_vehicle= input("Please Enter the full Vehicle name you would like to add: ")
+        db = open("AllowedVehicleList.txt", "a")
+        vehicle_name = input() 
+        db.write(vehicle_name + "\n")    
+        print(f"{vehicle_name} has been added as an authorized vehicle")
+        db.close()
+        AllowedVehiclesList.append(vehicle_name)
+        print(AllowedVehiclesList)
+    if choice == "4": 
+         vehicle_name= input("please Enter the full Vehicle name you would like to REMOVE: ")
+         choice = input(f'Are you sure you want to remove {vehicle_name} from the authorized vehicle list:  ')
+         if choice == "yes":
+                input(f"{vehicle_name} has been removed as an authorized vehicle")
+                AllowedVehiclesList.remove(vehicle_name)
+                print(AllowedVehiclesList)
+         if choice == "no":
+            print(AllowedVehiclesList)
+    if choice == "5":
+        print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
+        break 
